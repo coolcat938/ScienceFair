@@ -1,0 +1,33 @@
+// Get the text from the HTML element with the specified ID
+var text = document.getElementById("text-element").innerText;
+
+// Split the text into an array of sentences
+var sentences = text.split(/[.?!]/);
+
+// Calculate the number of sentences
+var numSentences = sentences.length;
+
+// Initialize variables to store the total number of words and the total number of letters
+var numWords = 0;
+var numLetters = 0;
+
+// Loop through each sentence
+for (var i = 0; i < sentences.length; i++) {
+  // Split the sentence into an array of words
+  var words = sentences[i].split(" ");
+  
+  // Add the number of words in the sentence to the total number of words
+  numWords += words.length;
+  
+  // Loop through each word in the sentence
+  for (var j = 0; j < words.length; j++) {
+    // Add the number of letters in the word to the total number of letters
+    numLetters += words[j].length;
+  }
+}
+
+// Calculate the average number of words per sentence
+var avgWordsPerSentence = numWords / numSentences;
+
+// Calculate the average word length
+var avgWordLength = numLetters / numWords;
