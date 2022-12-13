@@ -1,33 +1,31 @@
-// Get the text from the HTML element with the specified ID
-var text = document.getElementById("text-element").innerText;
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Text Analysis</title>
+  <script>
+    //Function to find the number of sentences in a given text
+    function numSentences(text){
+      var sentences = text.split(".");
+      return sentences.length;
+    }
 
-// Split the text into an array of sentences
-var sentences = text.split(/[.?!]/);
+    //Function to find the number of words in each sentence
+    function numWordsPerSentence(text){
+      var words = text.split(" ");
+      var sentenceArray = [];
+      for(var i=0; i<words.length; i++){
+        if(words[i] == "."){
+          sentenceArray.push(words.slice(0,i));
+          words = words.slice(i+1, words.length);
+          i=-1;
+        }
+      }
+      return sentenceArray.map(function(sentence){
+        return sentence.length;
+      });
+    }
 
-// Calculate the number of sentences
-var numSentences = sentences.length;
-
-// Initialize variables to store the total number of words and the total number of letters
-var numWords = 0;
-var numLetters = 0;
-
-// Loop through each sentence
-for (var i = 0; i < sentences.length; i++) {
-  // Split the sentence into an array of words
-  var words = sentences[i].split(" ");
-  
-  // Add the number of words in the sentence to the total number of words
-  numWords += words.length;
-  
-  // Loop through each word in the sentence
-  for (var j = 0; j < words.length; j++) {
-    // Add the number of letters in the word to the total number of letters
-    numLetters += words[j].length;
-  }
-}
-
-// Calculate the average number of words per sentence
-var avgWordsPerSentence = numWords / numSentences;
-
-// Calculate the average word length
-var avgWordLength = numLetters / numWords;
+    //Function to find the number of letters in each word
+    function numLettersPerWord(text){
+      var words = text.split(" ");
+      return words.
