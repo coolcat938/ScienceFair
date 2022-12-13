@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <title>Text Analysis with HTML</title>
+  </head>
+  <body>
+    <p>Enter some text to analyze:</p>
+    <textarea id="input-text"></textarea>
+    <br>
+    <button onclick="analyzeText()">Analyze</button>
+    <br><br>
+    <p>Results:</p>
+    <p id="results"></p>
+    
+    <script>
+      function analyzeText() {
+        // get the input text
+        var input = document.getElementById("input-text").value;
+        
+        // perform some basic text analysis
+        var numChars = input.length;
+        var numWords = input.split(" ").length;
+        
+        // display the results
+        var results = "Number of characters: " + numChars + "<br>";
+        results += "Number of words: " + numWords;
+        document.getElementById("results").innerHTML = results;
+      }
+    </script>
+  </body>
+</html>
