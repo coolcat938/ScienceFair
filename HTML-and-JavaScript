@@ -1,0 +1,28 @@
+<html>
+<head>
+  <title>Text Analysis</title>
+</head>
+<body>
+  <h1>Text Analysis</h1>
+  <p>Enter some text below to perform text analysis on it:</p>
+  <textarea id="text-input" rows="4" cols="50"></textarea><br>
+  <button onclick="analyze()">Analyze</button>
+  <h2>Results:</h2>
+  <p id="results"></p>
+  <script>
+    function analyze() {
+      // Get the text from the input field
+      var text = document.getElementById('text-input').value;
+
+      // Perform text analysis using JavaScript
+      var words = text.split(' ');
+      var numWords = words.length;
+      var numChars = text.length;
+      var results = 'Number of words: ' + numWords + '<br>Number of characters: ' + numChars;
+
+      // Display the results
+      document.getElementById('results').innerHTML = results;
+    }
+  </script>
+</body>
+</html>
