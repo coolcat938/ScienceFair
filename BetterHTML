@@ -1,0 +1,43 @@
+//const text = "This is some sample text. It has two sentences. Each sentence has a different number of words.";
+const analysis = analyzeText(text);
+
+function analyzeText(text) {
+  // Split the text into sentences
+  const sentences = text.split(/[.!?]+/);
+
+  // Create an array to store the number of words in each sentence
+  const numWordsInSentence = [];
+
+  // Create an array to store the number of letters in each word
+  const numLettersInWord = [];
+
+  // Loop through each sentence
+  for (const sentence of sentences) {
+    // Split the sentence into words
+    const words = sentence.split(' ');
+
+    // Count the number of words in the sentence and add it to the array
+    numWordsInSentence.push(words.length);
+
+    // Loop through each word
+    for (const word of words) {
+      // Count the number of letters in the word and add it to the array
+      numLettersInWord.push(word.length);
+    }
+  }
+
+  // Calculate the average number of words per sentence
+  const avgWordsPerSentence = numWordsInSentence.reduce((a, b) => a + b) / numWordsInSentence.length;
+
+  // Calculate the average word length
+  const avgWordLength = numLettersInWord.reduce((a, b) => a + b) / numLettersInWord.length;
+
+  // Return the results as an object
+  return {
+    numSentences: sentences.length,
+    numWordsInSentence,
+    numLettersInWord,
+    avgWordsPerSentence,
+    avgWordLength,
+  };
+}
