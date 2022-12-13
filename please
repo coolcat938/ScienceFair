@@ -1,31 +1,76 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Text Analysis</title>
-  <script>
-    //Function to find the number of sentences in a given text
-    function numSentences(text){
-      var sentences = text.split(".");
-      return sentences.length;
-    }
+<title>Text Analysis</title>
+</head>
+<body>
 
-    //Function to find the number of words in each sentence
-    function numWordsPerSentence(text){
-      var words = text.split(" ");
-      var sentenceArray = [];
-      for(var i=0; i<words.length; i++){
-        if(words[i] == "."){
-          sentenceArray.push(words.slice(0,i));
-          words = words.slice(i+1, words.length);
-          i=-1;
-        }
-      }
-      return sentenceArray.map(function(sentence){
-        return sentence.length;
-      });
-    }
+<h1>Text Analysis</h1>
 
-    //Function to find the number of letters in each word
-    function numLettersPerWord(text){
-      var words = text.split(" ");
-      return words.
+<p>Enter your text in the box below:</p>
+
+<textarea id="textInput" rows="10" cols="50"></textarea><br>
+
+<button onclick="analyzeText()">Analyze Text</button><br><br>
+
+<p>Results:</p>
+
+<p>Number of sentences: <span id="numSentences"></span></p>
+
+<p>Number of words in each sentence: <span id="numWordsInSentences"></span></p>
+
+<p>Number of letters in each word: <span id="numLettersInWords"></span></p>
+
+<p>Average number of words per sentence: <span id="avgWordsPerSentence"></span></p>
+
+<p>Average word length: <span id="avgWordLength"></span></p>
+
+<script>
+function analyzeText() {
+  // Get the text from the textarea
+  var text = document.getElementById("textInput").value;
+
+  // Split the text into an array of sentences
+  var sentences = text.split(/[.!?]/);
+
+  // Count the number of sentences
+  var numSentences = sentences.length;
+  document.getElementById("numSentences").innerHTML = numSentences;
+
+  // Count the number of words in each sentence
+  var numWordsInSentences = sentences.map(function(sentence) {
+    return sentence.split(" ").length;
+  });
+  
+  <p>Enter some text in the text area below:</p>
+
+<textarea id="inputText"></textarea><br>
+
+<button onclick="findStatistics()">Find Statistics</button><br><br>
+
+<p>Number of letters in each word: <span id="numLetters"></span></p>
+<p>Average number of words per sentence: <span id="avgWordsPerSentence"></span></p>
+<p>Average word length: <span id="avgWordLength"></span></p>
+
+<script>
+function findStatistics() {
+  // Get the input text from the textarea
+  var input = document.getElementById("inputText").value;
+
+  // Split the text into an array of words
+  var words = input.split(" ");
+
+  // Find the number of letters in each word
+  var numLetters = words.map(function(word) {
+    return word.length;
+  });
+
+  // Find the average number of words per sentence
+  var numSentences = input.split(".").length;
+  var avgWordsPerSentence = words.length / numSentences;
+
+  // Find the average word length
+  var totalWordLength = numLetters.reduce(function(a, b) {
+    return a + b;
+  });
+  var avgWordLength = totalWordLength / words.length;
