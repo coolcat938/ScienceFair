@@ -1,0 +1,61 @@
+<html>
+<script>
+
+function my_count(str){
+
+//Count the words
+var wCount= str.split(' ').length; 
+
+
+// Import regular expression library 
+ const re = /[.!?]/; 
+//Number of sentences
+var sCount=  str.split(re).length - 1;
+
+//Number of words in a sentence (not completed)
+var wsCount ="";
+for (let i=0; i < sCount; i++ ){
+var wsCount = str.split(re).map(x => {
+return "<b>Sentence:  </b>"+ x + " <b> Length:  </b>"+ x.length +"<br>";
+}); 
+}
+
+
+
+//Number of punctuations
+var pCount=  str.split(re).reduce((acc, cur) => acc + cur.length - 1, 0); 
+
+
+//Number of letters in each word
+var strArr= str.split(' ').map(x => {
+return "<b>Word:  </b>"+ x + " <b> Length:  </b>"+ x.length +"<br>";
+}); 
+
+
+//print it 
+
+document.write("<p> Your original text is <br>", str,"<br></p>");
+document.write("<p>Number of words:", wCount,"</p>");
+document.write("<p>Number of sentences:",sCount,"</p>");
+document.write("<p>Number of punctuations:",pCount,"</p>");
+document.write("<p>Number of letters in each words:<br>",strArr);
+document.write ("<p>Number of words in each sentence:<br>",wsCount);
+ }
+
+
+//var mytext = "A quick brown fox jumps over the lazy dog";
+
+</script>
+
+<body>
+
+<h2>Count Statistics</h2>
+
+<br> A quick brown fox jumps over the lazy dog<br>
+<br><br>
+
+<input id="myTxt" type="text">
+<button onclick="my_count(myTxt.value)"> Click me to get the count statistics  </button>
+
+</body>
+</html>
