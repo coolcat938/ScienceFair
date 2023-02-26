@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Text Analysis Science Fair Project</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <header>
+      <h1>Text Analysis Science Fair Project</h1>
+    </header>
+    <main>
+      <section>
+        <h2>Project Overview</h2>
+        <p>This science fair project explores different text analysis techniques and their applications. The goal is to compare the accuracy and efficiency of various text analysis methods.</p>
+      </section>
+      <section>
+        <h2>Methods</h2>
+        <p>The project uses several different text analysis techniques, including:</p>
+        <ul>
+          <li>Frequency analysis</li>
+          <li>Sentiment analysis</li>
+          <li>Topic modeling</li>
+        </ul>
+        <p>The project also uses several different programming languages and tools, including Python, NLTK, and scikit-learn.</p>
+      </section>
+      <section>
+        <h2>Results</h2>
+        <p>The results of the project show that each text analysis technique has its strengths and weaknesses. Frequency analysis is simple and fast, but it may not be as accurate as more advanced techniques like sentiment analysis or topic modeling. Sentiment analysis is very accurate at identifying the overall tone of a text, but it may not be as useful for more complex analyses. Topic modeling is very useful for identifying key themes in a large dataset, but it can be computationally intensive and may require a lot of processing power.</p>
+      </section>
+    </main>
+    <footer>
+      <p>Copyright © 2023 Text Analysis Science Fair Project</p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
